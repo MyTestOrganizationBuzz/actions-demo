@@ -1,4 +1,4 @@
-name: Backup using Github CLI with GitHub App
+name: Demo
 on:
   workflow_dispatch:
 jobs:
