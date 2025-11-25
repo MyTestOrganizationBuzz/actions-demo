@@ -1,0 +1,11 @@
+name: Backup using Github CLI with GitHub App
+on:
+  workflow_dispatch:
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install PP Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
