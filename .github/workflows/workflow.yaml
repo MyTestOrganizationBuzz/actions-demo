@@ -2,10 +2,24 @@ name: Demo
 on:
   workflow_dispatch:
 jobs:
-  demo:
+  fetch_secrets:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install PP Tools
-        uses: microsoft/powerplatform-actions/actions-install@v1
+      - name: Fetch static secrets from Akeyless
+        uses: akeyless-community/akeyless-github-action@v1.1.2
+        id: fetch-secrets
+        with:
+          access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
+          access-type: jwt
+          api-url: https://api.akeyless.io
+          static-secrets: |
+            - name: "/MyFirstSecret"
+              output-name: "my_first_secret"
+      - name: Use Akeyless secret
+        run: |
+            echo "Step Outputs"
+            echo "my_first_secret: ${{ steps.fetch-secrets.outputs.my_first_secret }}" >> secrets.txt
