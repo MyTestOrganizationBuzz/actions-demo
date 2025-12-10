@@ -21,5 +21,4 @@ jobs:
               output-name: "my_first_secret"
       - name: Use Akeyless secret
         run: |
-            echo "Step Outputs"
-            echo "my_first_secret: ${{ steps.fetch-secrets.outputs.my_first_secret }}" >> secrets.txt
+            echo "${{ env.my_first_secret }}"
