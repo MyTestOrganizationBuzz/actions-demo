@@ -1,4 +1,4 @@
-name: Demo
+name: Akeyless fetch
 on:
   workflow_dispatch:
 jobs:
