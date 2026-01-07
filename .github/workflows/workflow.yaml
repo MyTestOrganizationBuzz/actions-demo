@@ -14,11 +14,8 @@ jobs:
         id: fetch-secrets
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
-          access-type: jwt
+          access-type: uid
           api-url: https://api.akeyless.io
           static-secrets: |
             - name: "/MyFirstSecret"
               output-name: "my_first_secret"
-      - name: Use Akeyless secret
-        run: |
-            echo "${{ env.my_first_secret }}"
