@@ -16,7 +16,7 @@ jobs:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
           access-type: universal_identity
           api-url: https://api.akeyless.io
-          uid_token: "uid_token"
+          token: "uid_token"
           static-secrets: |
             - name: "/MyFirstSecret"
               output-name: "my_first_secret"
