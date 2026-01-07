@@ -14,8 +14,9 @@ jobs:
         id: fetch-secrets
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
-          access-type: uid
+          access-type: universal_identity
           api-url: https://api.akeyless.io
+          uid_token: "uid_token"
           static-secrets: |
             - name: "/MyFirstSecret"
               output-name: "my_first_secret"
