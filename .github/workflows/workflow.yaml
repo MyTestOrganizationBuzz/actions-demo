@@ -14,9 +14,8 @@ jobs:
         id: fetch-secrets
         with:
           access-id: ${{ vars.AKEYLESS_ACCESS_ID }}
-          access-type: universal_identity
+          access-type: jwt
           api-url: https://api.akeyless.io
-          token: "uid_token"
           static-secrets: |
             - name: "/PowerPlatform/DEV/IncidentApp_PP_URL"
               output-name: "/PowerPlatform/DEV/IncidentApp_PP_URL"
