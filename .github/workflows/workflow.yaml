@@ -10,7 +10,9 @@ jobs:
 
     steps:
       - name: Test
-        run: echo "${{ fromJSON(format('["{0}"]', replace(github.event.repository.name, '_', '","')))[0] }}"
+        env:
+          PREFIX: ${{ fromJSON(format('["{0}"]', replace(github.event.repository.name, '_', '","')))[0] }}
+        run: echo "$PREFIX"
 
       # - name: Fetch static secrets from Akeyless
       #   uses: akeyless-community/akeyless-github-action@v1.1.3
