@@ -12,10 +12,9 @@ jobs:
       - name: Get repo prefix
         id: split
         env:
-          REPO: ${{ github.repository }}
-        run:  | 
-          echo "fragment=${REPO%%-*}" >> "$GITHUB_OUTPUT"
-          echo $fragment
+          REPO: ${{ github.event.repository.name }}
+        run: echo "fragment=${REPO%%-*}" >> "$GITHUB_OUTPUT"
+
 
       # - name: Fetch static secrets from Akeyless
       #   uses: akeyless-community/akeyless-github-action@v1.1.3
