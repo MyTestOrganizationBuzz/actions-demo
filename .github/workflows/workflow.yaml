@@ -10,7 +10,8 @@ jobs:
 
     steps:
       - name: Test
-        run: echo ${{ fromJson(vars.AKEYLESS_ACCESS_ID)[ vars.ENVIRONMENT ] }}
+        run: echo "${{ fromJSON('["' + replace(github.event.repository.name, '_', '","') + '"]')[0] }}"
+
       # - name: Fetch static secrets from Akeyless
       #   uses: akeyless-community/akeyless-github-action@v1.1.3
       #   id: fetch-secrets
