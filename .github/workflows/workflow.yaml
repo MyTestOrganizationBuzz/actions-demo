@@ -14,7 +14,8 @@ jobs:
         env:
           REPO: ${{ github.event.repository.name }}
         run: echo "fragment=${REPO%%-*}" >> "$GITHUB_OUTPUT"
-
+      - name: Display repo prefix
+        run: echo "${{ steps.split.outputs.fragment }}"
 
       # - name: Fetch static secrets from Akeyless
       #   uses: akeyless-community/akeyless-github-action@v1.1.3
