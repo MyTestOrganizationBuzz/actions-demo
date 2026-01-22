@@ -9,10 +9,11 @@ jobs:
       contents: read
 
     steps:
-      - name: Test
+      - name: Get repo prefix
+        id: split
         env:
-          PREFIX: ${{ fromJSON(format('["{0}"]', replace(github.event.repository.name, '_', '","')))[0] }}
-        run: echo "$PREFIX"
+          REPO: ${{ github.event.repository.name }}
+        run: echo "fragment=${REPO%%-*}" >> "$GITHUB_OUTPUT"
 
       # - name: Fetch static secrets from Akeyless
       #   uses: akeyless-community/akeyless-github-action@v1.1.3
