@@ -16,10 +16,6 @@ jobs:
         run: echo "fragment=${REPO%%-*}" >> "$GITHUB_OUTPUT"
       - name: Display repo prefix
         run: echo "${{ steps.split.outputs.fragment }}"
-      - name: show oidc
-        run: echo  -n "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" | base64
-      - name: show token
-        run: echo -n "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" | base64
 
       # - name: Fetch static secrets from Akeyless
       #   uses: akeyless-community/akeyless-github-action@v1.1.3
